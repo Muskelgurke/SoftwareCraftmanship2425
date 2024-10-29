@@ -6,23 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 
-public class MyFirstTest {
-    @Test
-    void firstTest() {
-        var c = new Calculator();
-        assertEquals(3,c.add(1,2));
-    }
-
-    @Test
-    void TestCase0(){
-        int[] TestArray={};
-        int[] expectedValue = {};
-        Assertions.assertArrayEquals(expectedValue, RunLengthEncoder.encode(TestArray));
-    }
+public class TestCasesOfRunLengthEncoder {
     @Test
     void TestCase1(){
         int[] TestArray={2};
         int[] expectedValue = {2, 1};
+        Assertions.assertArrayEquals(expectedValue, RunLengthEncoder.encode(TestArray));
+    }
+    @Test
+    void TestCase0(){
+        int[] TestArray={};
+        int[] expectedValue = {};
         Assertions.assertArrayEquals(expectedValue, RunLengthEncoder.encode(TestArray));
     }
     @Test
