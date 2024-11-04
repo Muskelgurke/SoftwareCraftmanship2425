@@ -4,6 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RunLengthEncoder {
+    public static int[] encode(int[] data) {
+        List<Integer> encodedValue = new ArrayList<>();
+        int count = 1;
+        for (int i = 0; i < data.length; i++) {
+            if (i + 1 < data.length && data[i] == data[i + 1]) {
+                count++;
+            } else {
+                encodedValue.add(data[i]);
+                encodedValue.add(count);
+                count = 1;
+            }
+        }
+        return encodedValue.stream().mapToInt(Integer::intValue).toArray();
+    }
     public static int[] encode2(int[] data) {
         int inputLength = data.length;
         int CountOfCurrentValue = 1;
@@ -13,7 +27,6 @@ public class RunLengthEncoder {
             if (i + 1 < inputLength)
                 if (data[i] == data[i + 1]) {
                     CountOfCurrentValue++;
-
                 } else {
                     encodedValue.add(data[i]);
                     encodedValue.add(CountOfCurrentValue);
@@ -26,21 +39,5 @@ public class RunLengthEncoder {
         }
         int[] output = encodedValue.stream().mapToInt(Integer::intValue).toArray();
         return output;
-    }
-
-    public static int[] encode(int[] data) {
-        List<Integer> encodedValue = new ArrayList<>();
-        int count = 1;
-
-        for (int i = 0; i < data.length; i++) {
-            if (i + 1 < data.length && data[i] == data[i + 1]) {
-                count++;
-            } else {
-                encodedValue.add(data[i]);
-                encodedValue.add(count);
-                count = 1;
-            }
-        }
-        return encodedValue.stream().mapToInt(Integer::intValue).toArray();
     }
 }
