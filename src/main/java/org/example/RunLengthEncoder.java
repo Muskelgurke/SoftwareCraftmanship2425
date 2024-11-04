@@ -5,21 +5,21 @@ import java.util.List;
 
 public class RunLengthEncoder {
     public static int[] encode(int[] data) {
-        List<Integer> encodedValue = new ArrayList<>();
+        List<Integer> encodedData = new ArrayList<>();
         int count = 1;
         for (int i = 0; i < data.length; i++) {
-            boolean didntReachEnd = i +1 < data.length;
+            boolean didntReachEnd = i + 1 < data.length;
             boolean neighboursAreEqual = data[i] == data[i+1];
 
             if (didntReachEnd && neighboursAreEqual) {
                 count++;
             } else {
-                encodedValue.add(data[i]);
-                encodedValue.add(count);
+                encodedData.add(data[i]);
+                encodedData.add(count);
                 count = 1;
             }
         }
-        return encodedValue.stream().mapToInt(Integer::intValue).toArray();
+        return encodedData.stream().mapToInt(Integer::intValue).toArray();
     }
     public static int[] encode2(int[] data) {
         int inputLength = data.length;
