@@ -8,9 +8,9 @@ public class RunLengthEncoder {
         List<Integer> encodedValue = new ArrayList<>();
         int count = 1;
         for (int i = 0; i < data.length; i++) {
-            boolean didnt_reached_end = i +1 < data.length;
-            boolean neighbours_are_equal = data[i] == data[i+1];
-            if (didnt_reached_end && neighbours_are_equal) {
+            boolean didntReachEnd = i +1 < data.length;
+            boolean neighboursAreEqual = data[i] == data[i+1];
+            if (didntReachEnd && neighboursAreEqual) {
                 count++;
             } else {
                 encodedValue.add(data[i]);
