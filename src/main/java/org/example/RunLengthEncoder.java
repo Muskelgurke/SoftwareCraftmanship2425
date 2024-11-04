@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RunLengthEncoder {
+    private static int[] listToArray(List <Integer> values){
+        return values.stream().mapToInt(Integer::intValue).toArray();
+    }
     public static int[] encode(int[] data) {
         List<Integer> encodedData = new ArrayList<>();
         int count = 1;
@@ -19,7 +22,7 @@ public class RunLengthEncoder {
                 count = 1;
             }
         }
-        return encodedData.stream().mapToInt(Integer::intValue).toArray();
+        return listToArray(encodedData);
     }
     public static int[] encode2(int[] data) {
         int inputLength = data.length;
