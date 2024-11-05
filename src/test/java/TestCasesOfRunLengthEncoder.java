@@ -12,7 +12,7 @@ public class TestCasesOfRunLengthEncoder {
         int[] TestArray={2};
         int[] expectedValue = {2, 1};
         Assertions.assertArrayEquals(expectedValue, RunLengthEncoder.encode(TestArray));
-        assertEqu
+
     }
     @Test
     void TestCase0(){
