@@ -13,7 +13,7 @@ public class RunLengthEncoder {
         for (int i = 0; i < data.length; i++) {
             boolean didntReachEnd = i + 1 < data.length;
             boolean neighboursAreEqual = false;
-            if (i+1 <data.length) {
+            if (didntReachEnd) {
                 neighboursAreEqual = data[i] == data[i + 1];
             }
             if (didntReachEnd && neighboursAreEqual) {
