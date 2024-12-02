@@ -9,57 +9,54 @@ public class RomanNumerals {
             return "";
         }
 
+        int anzahlEiner = Zahl % 10;
+        int anzahlZehner = (Zahl % 100)/10;
+        int anzahlHunderter= (Zahl % 1000)/100;
 
-        int einer = Zahl % 10;
-        int Zehner = (Zahl % 100)/10;
-        int hunderter= (Zahl % 1000)/100;
-
-        if (hunderter >=1){
+        if (anzahlHunderter >=1){
             output.append("C");
         }
-        if (Zehner == 9){
+        if (anzahlZehner == 9){
             output.append("XC");
         }
 
-        if (Zehner >4 && Zehner<9){
+        if (anzahlZehner >4 && anzahlZehner<9){
             output.append("L");
-            for (int i =0; i<Zehner-5; i++) {
+            for (int i =0; i<anzahlZehner-5; i++) {
                 output.append("X");
             }
         }
-        if (Zehner == 4){
+        if (anzahlZehner == 4){
             output.append("XL");
         }
-        if (Zehner >=1 && Zehner<4){
-            for (int i = 1; i<=Zehner; i++){
+        if (anzahlZehner >=1 && anzahlZehner<4){
+            for (int i = 1; i<=anzahlZehner; i++){
                 output.append("X");
             }
         }
-
-        if(einer == 9)
+        if(anzahlEiner == 9)
         {
             output.append("IX");
         }
-        if(5 <= einer && einer <= 8)
+        if(5 <= anzahlEiner && anzahlEiner <= 8)
         {
             output.append("V");
-            for (int i = 6; i <= einer; i++)
+            for (int i = 6; i <= anzahlEiner; i++)
             {
                 output.append("I");
             }
         }
-        if(einer == 4)
+        if(anzahlEiner == 4)
         {
             output.append("IV");
         }
-        if(einer < 4)
+        if(anzahlEiner < 4)
         {
-            for (int i = 1; i <= einer; i++)
+            for (int i = 1; i <= anzahlEiner; i++)
             {
                 output.append("I");
             }
         }
-
         return output.toString();
 
     }
